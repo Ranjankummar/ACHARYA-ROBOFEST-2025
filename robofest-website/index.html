@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acharya Robofest 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="hero">
+        <nav class="top-nav">
+            <a href="#" id="aboutAcharyaLink" class="nav-link">About Acharya</a>
+            <a href="#" id="aboutAITLink" class="nav-link">About Acharya Institute of Technology</a>
+        </nav>
+
+        <div id="aboutOverlay" class="about-overlay">
+            <button class="close-overlay" id="closeOverlay">×</button>
+            <div id="aboutContentBox"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>ACHARYA ROBOFEST 2025</h1>
+            <p class="tagline">Where Innovation Meets Intelligent Machines</p>
+            <p class="host">Hosted by Acharya Institute of Technology, Bengaluru</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('events').scrollIntoView({behavior: 'smooth'})">Explore Events</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Register Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Events</h2>
+
+            <div class="event-block">
+                <h3 class="event-title">Event 1: Robo-Triathlon</h3>
+                <p class="event-description">The ultimate robotics challenge combining three demanding tasks in one competition. Teams must design a versatile robot capable of precise manipulation, creative drawing, and intelligent color recognition—all within a strict 5-minute time limit.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Pick & Place</h4>
+                        <p>Design a gripper to pick cube-shaped objects and place them in designated areas with precision and speed.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Draw a Shape</h4>
+                        <p>Program your robot to draw geometric shapes (square, circle, rectangle, or triangle) on a plane sheet.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Robovision</h4>
+                        <p>Implement computer vision to identify and pick specific colored objects, placing them in designated boxes.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>General Guidelines</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Each team consists of 2-4 members</li>
+                                <li>Only 2 members allowed near the arena during the run</li>
+                                <li>Maximum time to complete all 3 events: 5 minutes</li>
+                                <li>A common robot must be used for all 3 events</li>
+                                <li>No breaks between sub-events</li>
+                                <li>Winner: Team completing all three events in shortest time</li>
+                                <li>If no team completes all events, the team completing 2 events in shortest time wins</li>
+                                <li>Any misconduct or track damage leads to immediate disqualification</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Technical Specifications</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <h5>Electrical & Power Requirements</h5>
+                            <ul>
+                                <li>Maximum voltage limit: 25.2V (6S LiPo equivalent)</li>
+                                <li>Only LiPo or LiFePO4 batteries permitted</li>
+                                <li>Batteries must be fully enclosed or secured in a fire-resistant compartment</li>
+                            </ul>
+                            <h5>Time Calculation</h5>
+                            <p>Total time is the sum of all three events. No specific time limit for individual events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-block">
+                <h3 class="event-title">Event 2: Robo Race</h3>
+                <p class="event-description">A high-speed obstacle course challenge where custom-built robots navigate through ramps, speed breakers, sand traps, and sharp turns. Teams compete for the fastest lap time while avoiding penalties in this adrenaline-fueled race.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Robot Specs</h4>
+                        <p>Maximum dimensions: 300mm × 300mm × 300mm cube. Wheeled or tracked locomotion only. Custom-built chassis mandatory—no LEGO kits or toy cars allowed.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Track Features</h4>
+                        <p>Minimum 400mm lane width with obstacles including ramps (max 30° incline), speed breakers, sand traps, bridges, and zig-zag turns.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Race Format</h4>
+                        <p>Qualifiers: 1 lap. Finals: 2 laps or subject to reviewer call. Maximum allowed time: 4 minutes per run.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>General Rules</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Each team consists of 2-4 members</li>
+                                <li>Only 2 members allowed near the track during the run</li>
+                                <li>Maximum voltage: 25.2V (6S LiPo equivalent)</li>
+                                <li>Control method: Wired or Wireless (2.4 GHz RC)</li>
+                                <li>Track surface: Plywood, carpet, or vinyl</li>
+                                <li>Any misconduct or track damage leads to immediate disqualification</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Race Rules</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <h5>Penalties</h5>
+                            <ul>
+                                <li>Touching side wall: +5 seconds per touch</li>
+                                <li>Skipping an obstacle: +20 seconds or restart</li>
+                                <li>Pulling robot using wire: +10 seconds</li>
+                                <li>Manual reset (Hand Touch): +10 seconds</li>
+                            </ul>
+                            <h5>Reset Rule</h5>
+                            <p>If the robot flips, stalls, or becomes stuck, driver must call "RESET!". Timer continues running. Robot is placed at the previous checkpoint with a +10 seconds penalty.</p>
+                            <h5>Scoring</h5>
+                            <p>Final Score = Base Time + Penalties (for teams who complete the track)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-block">
+                <h3 class="event-title">Event 3: Robo War</h3>
+                <p class="event-description">The ultimate combat robotics showdown. Teams design and build battle-ready robots equipped with spinners, flippers, and lifters to compete in intense 4-minute matches. Strategy, durability, and aggressive offense determine the champion.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Robot Limits</h4>
+                        <p>Maximum weight: 2.0 kg (including battery). Dimensions: 300mm × 300mm × 300mm starting box. Voltage limit: 25.2V (6S LiPo).</p>
+                    </div>
+                    <div class="card">
+                        <h4>Weapons</h4>
+                        <p>Allowed: Spinners, lifters, flippers, clamps, wedges, pushers. Banned: Liquids, fire, nets, projectiles, EMP, high-voltage shocks.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Match Outcome</h4>
+                        <p>Win by Knockout (opponent immobile for 30 seconds), Judge's Decision (if time limit reached), or Tap Out (voluntary surrender).</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Robot Rules</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <h5>Safety Requirements (Mandatory)</h5>
+                            <ul>
+                                <li>External kill switch accessible without lifting the robot</li>
+                                <li>Must shut down both drive and weapon instantly</li>
+                                <li>Fail-safe: Robot stops all functions if transmitter is turned off or signal is lost</li>
+                                <li>Physical weapon lock/pin when outside the arena</li>
+                                <li>Batteries fully enclosed, all wiring insulated and secured</li>
+                            </ul>
+                            <h5>Match Conduct</h5>
+                            <ul>
+                                <li>Match duration: 4 minutes</li>
+                                <li>Drivers must remain behind the designated safety line</li>
+                                <li>No physical contact with the arena during the match</li>
+                                <li>Maximum pin time: 10 seconds (robot must release opponent)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Judging Criteria</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <h5>Scoring System (100 Points Total)</h5>
+                            <ul>
+                                <li><strong>Aggression (40 points):</strong> Actively attacking and maintaining offense</li>
+                                <li><strong>Damage (40 points):</strong> Actual damage or loss of opponent functionality</li>
+                                <li><strong>Control (20 points):</strong> Driving skill, stability, maneuvering, ring awareness</li>
+                            </ul>
+                            <h5>Disqualification</h5>
+                            <p>Participants may be disqualified for touching the arena during a match, damaging arena floor/walls/glass, using banned weapons, unsafe operation, or ignoring referee instructions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact & Registration</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Faculty Coordinator</h3>
+                    <p class="contact-name">Dr. Manjunath</p>
+                    <p class="contact-detail">+91 98447 19520</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Student Coordinator</h3>
+                    <p class="contact-name">To be announced</p>
+                    <p class="contact-detail">Contact details will be shared soon</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Registration & Payment</h3>
+                    <p class="contact-name">Registration Portal</p>
+                    <p class="contact-detail">Details coming soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Acharya Robofest. All rights reserved.</p>
+            <p>Acharya Institute of Technology, Bengaluru</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
