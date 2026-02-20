@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acharya Robohabba 2026</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">ROBOHABBA 2026</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#coordinators" class="nav-link">Coordinators</a></li>
+                <li><a href="#registration" class="nav-link">Registration</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">ACHARYA ROBOHABBA 2026</h1>
+            <p class="hero-subtitle">Where Innovation Meets Intelligent Machines</p>
+            <p class="hero-date">April 24th, 2026</p>
+            <p class="hero-host">Hosted by Acharya Institute of Technology, Bengaluru</p>
+            <button class="hero-btn" onclick="document.getElementById('registration').scrollIntoView({behavior: 'smooth'})">Register Now</button>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About</h2>
+            
+            <div class="about-card animate-on-scroll">
+                <h3>About Acharya</h3>
+                <p>Acharya is a premier educational community based in Bangalore, known for its commitment to innovation, excellence, and holistic student development. With a legacy of over three decades, Acharya offers a diverse and dynamic learning environment that nurtures talent and shapes future leaders. The institution provides more than 100 academic programs across undergraduate, postgraduate, and professional streams, fostering experiential and collaborative learning. Students from across India and over 75 countries choose Acharya to gain cutting-edge knowledge, global perspectives, and the confidence to succeed in a rapidly evolving world.</p>
+                <p>Acharya's expansive 120-acre campus blends academic studios, cutting-edge laboratories, recreational spaces, and vibrant student life elements to create an inspiring setting for education and innovation. The institute also emphasizes industry engagement, international partnerships, and real-world application of skills, empowering students to translate ideas into impact.</p>
+            </div>
+
+            <div class="about-card animate-on-scroll">
+                <h3>About Acharya Institute of Technology</h3>
+                <p>Acharya Institute of Technology (AIT), established in 2000 in Bengaluru, is one of the leading engineering and technology colleges in India. Affiliated with Visvesvaraya Technological University and accredited by NAAC and NBA, AIT is committed to excellence in teaching, research, and professional development.</p>
+                <p>AIT offers a wide array of undergraduate and postgraduate programs in engineering, technology, science, and management, including B.Tech, M.Tech, MBA, and MCA. The institute emphasizes academic rigor, practical learning, industry collaboration, and research, preparing students to become capable professionals and innovators in their fields. With a strong faculty team and state-of-the-art infrastructure, AIT fosters a culture of critical thinking, creativity, and lifelong learning.</p>
+                <p>Students at AIT benefit from strong placement support, industry training, and opportunities to participate in hackathons, technical events, and global immersion programs, ensuring they are job-ready and future-focused.</p>
+            </div>
+
+            <div class="about-card animate-on-scroll">
+                <h3>About Mechatronics Engineering</h3>
+                <p>Mechatronics engineering combines elements of mechanical engineering, electronics, computer science, and control engineering. The program prepares students for careers in designing and implementing intelligent systems and products. Our collaboration with <strong>Siemens</strong> helps students stay updated on current industry trends and are informed about the latest advancements and practices in the field.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Events</h2>
+
+            <div class="events-grid">
+                <div class="event-card animate-on-scroll" onclick="openEventModal('event1')">
+                    <div class="event-card-icon">🤖</div>
+                    <h3>Robo-Triathlon</h3>
+                    <p>Three challenges, one robot, ultimate skill test</p>
+                    <button class="event-card-btn">View Details</button>
+                </div>
+
+                <div class="event-card animate-on-scroll" onclick="openEventModal('event2')">
+                    <div class="event-card-icon">🏁</div>
+                    <h3>Robo Race</h3>
+                    <p>Speed, precision, and navigation combined</p>
+                    <button class="event-card-btn">View Details</button>
+                </div>
+
+                <div class="event-card animate-on-scroll" onclick="openEventModal('event3')">
+                    <div class="event-card-icon">⚔️</div>
+                    <h3>Robo War</h3>
+                    <p>Battle of machines, clash of titans</p>
+                    <button class="event-card-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEventModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <section id="coordinators" class="coordinators-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Coordinators</h2>
+
+            <div class="coordinator-grid">
+                <div class="coordinator-card animate-on-scroll">
+                    <h3>Faculty Coordinator</h3>
+                    <p class="coord-name">Dr. Manjunath</p>
+                    <p class="coord-phone">+91 9844719520</p>
+                </div>
+
+                <div class="coordinator-card animate-on-scroll">
+                    <h3>Main Coordinator</h3>
+                    <p class="coord-name">Suraj Menezes</p>
+                    <p class="coord-phone">Ph: 9380321088</p>
+                </div>
+
+                <div class="coordinator-card animate-on-scroll">
+                    <h3>Robo Race</h3>
+                    <p class="coord-name">Adigarla Rakesh</p>
+                    <p class="coord-phone">Ph: 8897767253</p>
+                </div>
+
+                <div class="coordinator-card animate-on-scroll">
+                    <h3>Robo War</h3>
+                    <p class="coord-name">Naveen Kumar K S</p>
+                    <p class="coord-phone">Ph: 8722249072</p>
+                </div>
+
+                <div class="coordinator-card animate-on-scroll">
+                    <h3>Robo Exhibition</h3>
+                    <p class="coord-name">Yash Lal and Niharika</p>
+                    <p class="coord-phone">Ph: 9880769119</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registration" class="payment-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Registration</h2>
+            <div class="payment-content animate-on-scroll">
+                <p class="payment-text">Fill in your details to register for the event</p>
+                <p class="registration-fee">Registration Fee: ₹500 per event</p>
+                
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name (as per college ID) *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email ID (primary contact) *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number (WhatsApp enabled) *</label>
+                        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="college">College Name *</label>
+                        <input type="text" id="college" name="college" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department / Branch *</label>
+                        <input type="text" id="department" name="department" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year / Semester *</label>
+                        <input type="text" id="year" name="year" placeholder="e.g., 2nd Year / 4th Semester" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usn">USN / Roll Number *</label>
+                        <input type="text" id="usn" name="usn" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventSelect">Select Event *</label>
+                        <select id="eventSelect" name="eventSelect" required>
+                            <option value="">-- Choose an Event --</option>
+                            <option value="robo-triathlon">Robo-Triathlon</option>
+                            <option value="robo-race">Robo Race</option>
+                            <option value="robo-war">Robo War</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="payment-btn">Proceed to Payment (₹500)</button>
+                </form>
+
+                <div id="paymentProofSection" class="payment-proof-section" style="display: none;">
+                    <h3>Upload Payment Proof</h3>
+                    <p class="proof-instruction">After completing the payment, please upload your payment screenshot and enter the transaction ID</p>
+                    
+                    <form id="paymentProofForm" class="registration-form">
+                        <div class="form-group">
+                            <label for="transactionId">Transaction ID *</label>
+                            <input type="text" id="transactionId" name="transactionId" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentScreenshot">Payment Screenshot *</label>
+                            <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+
+                        <button type="submit" class="payment-btn">Submit Registration</button>
+                        <button type="button" class="payment-btn-secondary" onclick="goBackToPayment()">Back to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Acharya Robohabba. All rights reserved.</p>
+            <p>Acharya Institute of Technology, Bengaluru</p>
+        </div>
+    </footer>
+
+    <script src="./Js/script.js"></script>
+</body>
+</html>
