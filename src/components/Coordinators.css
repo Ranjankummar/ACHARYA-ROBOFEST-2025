@@ -1,0 +1,137 @@
+.coordinators-section {
+    background: var(--bg-dark);
+    position: relative;
+}
+
+.coordinators-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-magenta), var(--neon-amber), transparent);
+    opacity: 0.35;
+}
+
+.coord-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 600px) {
+    .coord-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .coord-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.coord-card {
+    padding: 28px 24px;
+    border: 1px solid rgba(0, 229, 255, 0.08);
+    background: rgba(0, 229, 255, 0.02);
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rotating colors per card */
+.coord-card:nth-child(1) {
+    border-left: 3px solid var(--neon-cyan);
+}
+
+.coord-card:nth-child(2) {
+    border-left: 3px solid var(--neon-magenta);
+}
+
+.coord-card:nth-child(3) {
+    border-left: 3px solid var(--neon-amber);
+}
+
+.coord-card:nth-child(4) {
+    border-left: 3px solid var(--neon-lime);
+}
+
+.coord-card:nth-child(5) {
+    border-left: 3px solid var(--neon-purple);
+}
+
+.coord-card:nth-child(1) .coord-role {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.coord-card:nth-child(2) .coord-role {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 8px var(--glow-magenta);
+}
+
+.coord-card:nth-child(3) .coord-role {
+    color: var(--neon-amber);
+    text-shadow: 0 0 8px var(--glow-amber);
+}
+
+.coord-card:nth-child(4) .coord-role {
+    color: var(--neon-lime);
+    text-shadow: 0 0 8px var(--glow-lime);
+}
+
+.coord-card:nth-child(5) .coord-role {
+    color: var(--neon-purple);
+    text-shadow: 0 0 8px rgba(178, 77, 255, 0.2);
+}
+
+.coord-card:nth-child(1):hover {
+    box-shadow: 0 0 20px var(--glow-cyan);
+}
+
+.coord-card:nth-child(2):hover {
+    box-shadow: 0 0 20px var(--glow-magenta);
+}
+
+.coord-card:nth-child(3):hover {
+    box-shadow: 0 0 20px var(--glow-amber);
+}
+
+.coord-card:nth-child(4):hover {
+    box-shadow: 0 0 20px var(--glow-lime);
+}
+
+.coord-card:nth-child(5):hover {
+    box-shadow: 0 0 20px rgba(178, 77, 255, 0.2);
+}
+
+.coord-card:hover {
+    background: rgba(0, 229, 255, 0.04);
+    transform: translateY(-2px);
+}
+
+.coord-role {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.coord-name {
+    color: var(--text-main);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.coord-phone {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}

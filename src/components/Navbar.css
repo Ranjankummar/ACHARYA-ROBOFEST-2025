@@ -1,0 +1,193 @@
+.premium-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 24px 0;
+    transition: all var(--transition-smooth);
+}
+
+.premium-navbar.scrolled {
+    padding: 12px 0;
+    background: rgba(6, 10, 15, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.premium-navbar.scrolled::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-magenta), var(--neon-amber), transparent);
+    opacity: 0.4;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 6px var(--glow-cyan));
+}
+
+.nav-logo::before {
+    content: '[ ';
+    -webkit-text-fill-color: var(--neon-amber);
+    opacity: 0.8;
+}
+
+.nav-logo::after {
+    content: ' ]';
+    -webkit-text-fill-color: var(--neon-amber);
+    opacity: 0.8;
+}
+
+.nav-menu {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+        gap: 32px;
+    }
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 6px 0;
+    transition: all var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    box-shadow: 0 0 8px var(--glow-cyan);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-smooth);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Highlighted Register Button in Navbar */
+.nav-register-btn {
+    background: var(--text-main);
+    color: var(--bg-dark) !important;
+    padding: 8px 20px !important;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: transform var(--transition-smooth), opacity var(--transition-fast);
+}
+
+.nav-register-btn::after {
+    display: none;
+    /* Disable the underline animation for the highlighted button */
+}
+
+.nav-register-btn:hover {
+    transform: scale(0.95);
+    opacity: 0.9;
+}
+
+.mobile-toggle {
+    display: block;
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    transition: all var(--transition-fast);
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.mobile-toggle:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--glow-cyan);
+}
+
+@media (min-width: 768px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(6, 10, 15, 0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(0, 229, 255, 0.15);
+    overflow: hidden;
+}
+
+.mobile-menu ul {
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mobile-menu a {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: block;
+    padding: 10px 16px;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+    letter-spacing: 3px;
+}
+
+.mobile-menu a:hover {
+    color: var(--neon-cyan);
+    border-left-color: var(--neon-magenta);
+    background: rgba(0, 229, 255, 0.05);
+    text-shadow: 0 0 10px var(--glow-cyan);
+    padding-left: 24px;
+}
