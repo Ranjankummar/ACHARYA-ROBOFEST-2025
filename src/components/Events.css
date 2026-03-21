@@ -372,3 +372,30 @@
     font-weight: 700;
     font-size: 1.3rem;
 }
+
+/* Modal Table for Scorecards & Penalties */
+.modal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    color: var(--text-muted);
+}
+
+.modal-table th, .modal-table td {
+    padding: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.12);
+    text-align: left;
+}
+
+.modal-table th {
+    color: var(--neon-cyan);
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 229, 255, 0.05);
+}
+
+.modal-table tr:hover {
+    background: rgba(0, 229, 255, 0.02);
+}
