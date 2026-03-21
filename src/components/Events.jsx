@@ -64,6 +64,27 @@ const eventDetails = {
                 </ul>
             </>
         )
+    },
+    event4: {
+        title: "Robo Exhibition",
+        content: (
+            <>
+                <h4 className="modal-h4">1. Team & Project Requirements</h4>
+                <ul className="modal-list">
+                    <li>Each team can have 1–4 members and must present a working project or demonstrable prototype during the exhibition.</li>
+                    <li>Teams must explain the concept, working principle, applications, and benefits of their project to the judges.</li>
+                </ul>
+                <h4 className="modal-h4">2. Evaluation Criteria</h4>
+                <ul className="modal-list">
+                    <li>Projects will be evaluated based on innovation, technical understanding, implementation, practical application, and presentation.</li>
+                    <li>The exhibition encourages academic and hobby projects related to robotic applications.</li>
+                </ul>
+                <h4 className="modal-h4">3. Safety Guidelines</h4>
+                <ul className="modal-list">
+                    <li>All projects must be safe to demonstrate, and teams must follow event rules and venue safety guidelines.</li>
+                </ul>
+            </>
+        )
     }
 };
 
@@ -73,7 +94,8 @@ const Events = () => {
     const eventsList = [
         { id: 'event1', number: '01', title: 'Robo-Triathlon', desc: 'Three challenges, one robot, ultimate skill test.' },
         { id: 'event2', number: '02', title: 'Robo Race', desc: 'Speed, precision, and navigation combined.' },
-        { id: 'event3', number: '03', title: 'Robo War', desc: 'Battle of machines, clash of titans.' }
+        { id: 'event3', number: '03', title: 'Robo War', desc: 'Battle of machines, clash of titans.' },
+        { id: 'event4', number: '04', title: 'Robo Exhibition', desc: 'Showcase your robotic innovation and creativity.' }
     ];
 
     return (

@@ -165,6 +165,7 @@ const Registration = () => {
                                         <option value="robo-triathlon">Robo-Triathlon</option>
                                         <option value="robo-race">Robo Race</option>
                                         <option value="robo-war">Robo War</option>
+                                        <option value="robo-exhibition">Robo Exhibition</option>
                                     </select>
                                 </div>
                             </div>

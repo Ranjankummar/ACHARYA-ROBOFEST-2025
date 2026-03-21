@@ -70,7 +70,7 @@ const Hero = () => {
                         transition={{ duration: 1, delay: 0.9 }}
                     >
                         <div className="stat-item">
-                            <span className="stat-value cyan">03</span>
+                            <span className="stat-value cyan">04</span>
                             <span className="stat-label">Events</span>
                         </div>
                         <div className="stat-divider" />

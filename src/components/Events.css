@@ -55,6 +55,10 @@
     background: linear-gradient(90deg, rgba(255, 145, 0, 0.06), transparent);
 }
 
+.event-row:nth-child(4)::before {
+    background: linear-gradient(90deg, rgba(118, 255, 3, 0.06), transparent);
+}
+
 .event-row::after {
     content: '';
     position: absolute;
@@ -79,6 +83,11 @@
 .event-row:nth-child(3)::after {
     background: var(--neon-amber);
     box-shadow: 0 0 12px var(--glow-amber);
+}
+
+.event-row:nth-child(4)::after {
+    background: var(--neon-lime);
+    box-shadow: 0 0 12px rgba(118, 255, 3, 0.3);
 }
 
 .event-row:last-child {
@@ -129,6 +138,11 @@
     text-shadow: 0 0 10px var(--glow-amber);
 }
 
+.event-row:nth-child(4) .event-number {
+    color: var(--neon-lime);
+    text-shadow: 0 0 10px rgba(118, 255, 3, 0.3);
+}
+
 .event-info {
     position: relative;
     z-index: 1;
@@ -157,6 +171,11 @@
 .event-row:nth-child(3):hover .event-title {
     color: var(--neon-amber);
     text-shadow: 0 0 15px var(--glow-amber);
+}
+
+.event-row:nth-child(4):hover .event-title {
+    color: var(--neon-lime);
+    text-shadow: 0 0 15px rgba(118, 255, 3, 0.3);
 }
 
 .event-desc {

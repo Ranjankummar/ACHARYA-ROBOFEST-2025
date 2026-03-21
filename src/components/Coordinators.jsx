@@ -6,6 +6,7 @@ const Coordinators = () => {
     const coords = [
         { role: "Faculty Coordinator", name: "Dr. Manjunath", phone: "+91 9844719520" },
         { role: "Main Coordinator", name: "Suraj Menezes", phone: "9380321088" },
+        { role: "Robo-Triathlon", name: "Abhiramacharya", phone: "+91 7676381727" },
         { role: "Robo Race", name: "Adigarla Rakesh", phone: "8897767253" },
         { role: "Robo War", name: "Naveen Kumar K S", phone: "8722249072" },
         { role: "Robo Exhibition", name: "Yash Lal & Niharika", phone: "9880769119" },
