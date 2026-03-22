@@ -187,45 +187,45 @@ const eventDetails = {
         content: (
             <>
                 <h4 className="modal-h4">Robot Requirements</h4>
-                <p className="modal-p"><strong>Weight & Dimensions:</strong><br/>
-                Maximum allowable weight: 5.0 kg (inclusive of battery; exclusive of transmitter).<br/>
-                Weight tolerance: 50 grams (strict limit).<br/>
-                Robot must fit within: 400mm × 400mm × 300mm starting box.<br/>
-                Mechanical extensions are allowed only after the match begins.</p>
-                <p className="modal-p"><strong>Electrical & Power Requirements:</strong><br/>
-                Maximum voltage limit: 25.2V (6S LiPo equivalent).<br/>
-                Only LiPo or LiFePO4 batteries permitted.<br/>
-                Batteries must be fully enclosed or secured in a fire-resistant compartment.</p>
+                <p className="modal-p"><strong>Weight & Dimensions:</strong> Maximum weight is 5.0 kg (includes battery, excludes transmitter) with a strict 50-gram tolerance.<br/>
+                <strong>Size Limits:</strong> The robot must fit inside a 400mm × 400mm × 300mm starting box.<br/>
+                <strong>Extensions:</strong> Mechanical extensions are only allowed after the match begins.</p>
+
+                <h4 className="modal-h4">Electrical & Power Requirements</h4>
+                <p className="modal-p"><strong>Voltage Limit:</strong> Maximum voltage is 25.2V (6S LiPo equivalent) and must never exceed this at any time.<br/>
+                <strong>Battery Types:</strong> Only LiPo or LiFePO4 batteries are permitted.<br/>
+                <strong>Battery Safety:</strong> Batteries must be fully enclosed or secured in a fire-resistant compartment, and must be charged inside LiPo safe bags.<br/>
+                <strong>Master & Kill Switches:</strong> An external master power switch and a separate kill switch (which instantly stops both drive and weapons) are mandatory.<br/>
+                <strong>Fail-Safe Requirement:</strong> The robot must automatically stop all functions if the transmitter is turned off or the signal is lost.</p>
 
                 <h4 className="modal-h4">Weapon System Guidelines</h4>
-                <p className="modal-p"><strong>Allowed Weapons:</strong> Spinners (Drum, Vertical, Horizontal, Bar), Lifters, Flippers, Clamps, Wedges, Pushers.</p>
-                <p className="modal-p"><strong>Banned Weapons/Mechanisms:</strong><br/>
-                Liquids (water, oil, glue, chemicals), Fire, flame, explosives, Nets, chains, tapes, entanglement devices, Projectiles or shooting parts, EMP or communication jammers, High-voltage shock devices.</p>
-
-                <h4 className="modal-h4">Safety Guidelines (Mandatory)</h4>
-                <ul className="modal-list">
-                    <li><strong>Kill Switch:</strong> Every robot must have an external kill switch accessible without lifting the robot. Must shut down both drive and weapon instantly.</li>
-                    <li><strong>Fail-Safe Requirement:</strong> Robot must automatically stop all functions if: The transmitter is turned off, Signal is lost, or Fail-safe is triggered.</li>
-                    <li><strong>Weapon Safety:</strong> All active weapons (especially spinners) must include: A physical weapon lock/pin when outside the arena, and Secure mounting to prevent detachment.</li>
-                    <li><strong>Battery & Internal Safety:</strong> No exposed batteries allowed. All wiring must be insulated and secured. Robots must not have sharp, unprotected edges that could injure handling staff.</li>
-                </ul>
+                <p className="modal-p"><strong>Allowed Weapons:</strong> Spinners (Drum, Vertical, Horizontal, Bar), Lifters, Flippers, Clamps, Wedges, and Pushers.<br/>
+                <strong>Banned Weapons:</strong> Liquids, fire, explosives, entanglement devices (nets, chains, tapes), projectiles, EMPs, and high-voltage shock devices.<br/>
+                <strong>Weapon Safety:</strong> All active weapons must have a physical safety lock or pin inserted when outside the arena and be securely mounted to prevent detachment.</p>
 
                 <h4 className="modal-h4">Match Operation Guidelines</h4>
-                <p className="modal-p"><strong>Match Duration:</strong> Each match lasts 4 minutes.</p>
-                <p className="modal-p"><strong>Winning Criteria:</strong> A team can win through Knockout (KO): Opponent immobile for 30 seconds, Judge's Decision: If match reaches time limit, or Tap Out: Driver voluntarily stops the match.</p>
-                <p className="modal-p"><strong>Match Conduct:</strong> Drivers must remain behind the designated safety line. No physical contact with the arena during the match. Only the referee may pause or stop the match for safety concerns. No restarts for robots stuck on hazards unless due to arena malfunction.</p>
-                <p className="modal-p"><strong>Pinning Rule:</strong> Maximum pin time: 10 seconds. Robot must release the opponent after 10 seconds.</p>
+                <p className="modal-p"><strong>Match Duration:</strong> Duration will be notified on the day of the event.<br/>
+                <strong>Winning Criteria:</strong> A team can win by Knockout (opponent is immobile for 30 seconds), Tap Out (driver voluntarily stops), or a Judge's Decision.<br/>
+                <strong>Match Conduct:</strong> Drivers must stay behind the safety line and cannot touch the arena. Only the referee can pause the match.<br/>
+                <strong>Pinning Rule:</strong> You can only pin an opponent for a maximum of 10 seconds before you must release them.<br/>
+                <strong>Timeouts & Repairs:</strong> Teams get one 2-minute technical timeout per match. There is a mandatory 20-minute minimum repair gap between matches.</p>
 
                 <h4 className="modal-h4">Fouls & Disqualifications</h4>
+                <p className="modal-p">You will be penalized or disqualified for:</p>
                 <ul className="modal-list">
-                    <li>Touching the arena during a match</li>
-                    <li>Damage to arena floor, walls, or glass</li>
-                    <li>Using banned weapons or prohibited materials</li>
-                    <li>Unsafe operation or ignoring referee instructions</li>
+                    <li><strong>Excessive Damage:</strong> Fully destroying or causing irreparable, complete damage to an opponent's robot may lead to immediate disqualification.</li>
+                    <li>Touching the arena during a match.</li>
+                    <li>Damaging the arena structure.</li>
+                    <li>Using banned weapons or prohibited materials.</li>
+                    <li>Operating your robot unsafely or ignoring referee instructions.</li>
                 </ul>
 
+                <h4 className="modal-h4">Tournament Format & Spares</h4>
+                <p className="modal-p"><strong>Format & Matchups:</strong> The exact tournament structure and specific opponent matchups will be notified to all teams on the day of the event.<br/>
+                <strong>Spare Parts Required:</strong> Since robots will take damage, teams must carry extra spare parts. If a component breaks during a fight, you are responsible for replacing it quickly within the allowed repair time so your robot is ready for the next round.</p>
+
                 <h4 className="modal-h4">Judging Guidelines (100 Points Total)</h4>
-                <p className="modal-p">If the match reaches time limit, points are awarded as follows:</p>
+                <p className="modal-p">If the match goes to the time limit, judges award points based on:</p>
                 <table className="modal-table">
                     <thead>
                         <tr>
@@ -238,27 +238,24 @@ const eventDetails = {
                         <tr>
                             <td>Aggression</td>
                             <td>40</td>
-                            <td>Actively attacking and maintaining offense</td>
+                            <td>Actively attacking and maintaining offense.</td>
                         </tr>
                         <tr>
                             <td>Damage</td>
                             <td>40</td>
-                            <td>Actual damage or loss of opponent functionality</td>
+                            <td>Causing functional damage (without completely destroying the opponent).</td>
                         </tr>
                         <tr>
                             <td>Control</td>
                             <td>20</td>
-                            <td>Driving skill, stability, maneuvering, ring awareness</td>
+                            <td>Driving skill, stability, and arena awareness.</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h4 className="modal-h4">Inspection & Pit Guidelines</h4>
-                <p className="modal-p">Every robot must pass a 2-minute inspection before being allowed to compete.</p>
-                <ul className="modal-list">
-                    <li><strong>Inspection Checklist:</strong> Weight below 5.0kg, Fits in a 400mm cube, Fail-safe works, Kill switch accessible & functional, Weapon lock installed in the pit area, Robot moves in all directions, No loose parts or exposed batteries.</li>
-                    <li><strong>Pit Area Safety:</strong> All robots must be handled only in the test box or with wheels lifted. Weapons must remain locked outside the arena at all times. Charging batteries must be placed in LiPo safe bags.</li>
-                </ul>
+                <h4 className="modal-h4">Inspection & Pits</h4>
+                <p className="modal-p"><strong>Inspection:</strong> Every robot must pass a 2-minute checklist (weight, size, fail-safes, locks, and movement) before competing.<br/>
+                <strong>Pit Safety:</strong> Robots must only be handled in the test box or with their wheels lifted. Weapons must stay locked outside the arena.</p>
             </>
         )
     },
