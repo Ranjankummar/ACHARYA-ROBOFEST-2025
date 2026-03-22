@@ -8,7 +8,12 @@ const eventDetails = {
         title: "Robo-Triathlon",
         content: (
             <>
-                <p className="event-intro">This event includes 3 sub-events: Pick and Place, Draw a Shape, and Block Stacking.</p>
+                <p className="event-intro">This event includes 3 sub-events:</p>
+                <ul className="modal-list">
+                    <li>Pick and Place</li>
+                    <li>Draw a Shape</li>
+                    <li>Block Stacking</li>
+                </ul>
                 
                 <h4 className="modal-h4">General Guidelines</h4>
                 <ul className="modal-list">
@@ -22,12 +27,12 @@ const eventDetails = {
                 
                 <h4 className="modal-h4">Specific Guidelines</h4>
                 <ul className="modal-list">
-                    <li>Maximum allowed time to complete all three events is 5 minutes.</li>
+                    <li>Maximum time to complete all stages will be notified on the day of the event.</li>
                     <li>A single robot must be used for all three tasks.</li>
                     <li>The robot must perform the tasks in sequence without breaks.</li>
                     <li>The team that completes all three tasks in the shortest total time will be declared the winner.</li>
                     <li>If no team completes all three tasks, the team that completes the maximum number of tasks in the shortest time will be ranked higher.</li>
-                    <li>The 5-minute timer will not pause for resets, controller switching, or technical adjustments.</li>
+                    <li>The timer will not pause for resets, controller switching, or technical adjustments.</li>
                 </ul>
 
                 <h4 className="modal-h4">Event Framework</h4>
