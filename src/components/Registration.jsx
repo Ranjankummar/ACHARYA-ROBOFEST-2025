@@ -36,7 +36,25 @@ const Registration = () => {
     const submitRegistration = async (e) => {
         e.preventDefault();
 
-        if (!proofData.transactionId || !proofData.paymentScreenshot) {
+        // Explicit Client-Side Validations
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        const mobileRegex = /^[0-9]{10}$/;
+        if (!mobileRegex.test(formData.mobile)) {
+            alert('Please enter a valid 10-digit mobile number.');
+            return;
+        }
+
+        if (!formData.usn || formData.usn.trim().length < 5) {
+            alert('Please enter a valid USN / Roll Number.');
+            return;
+        }
+
+        if (!proofData.transactionId || !proofData.transactionId.trim() || !proofData.paymentScreenshot) {
             alert('Please complete the payment and upload the transaction details before submitting the form.');
             return;
         }
@@ -91,11 +109,15 @@ const Registration = () => {
                 setProofData({ transactionId: '', paymentScreenshot: null });
                 document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
             } else {
+                console.error("Backend Submission Error:", result.error || 'Unknown error', "Full Result:", result);
                 alert(`Submission Failed: ${result.error || 'Unknown error'}`);
             }
 
         } catch (error) {
-            console.error("Submission Error:", error);
+            console.error("Submission Execution Error:", error);
+            if (error?.response) {
+                console.error("Error Response Data:", error.response);
+            }
             alert("An error occurred during submission. Please try again or contact support.");
         } finally {
             setIsLoading(false);
