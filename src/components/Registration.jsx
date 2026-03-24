@@ -62,7 +62,14 @@ const Registration = () => {
         setIsLoading(true);
 
         try {
-            const eventName = document.getElementById('eventSelect').options[document.getElementById('eventSelect').selectedIndex].text;
+            // Safely get the event name without DOM manipulation
+            const eventNames = {
+                'robo-triathlon': 'Robo-Triathlon',
+                'robo-race': 'Robo Race',
+                'robo-war': 'Robo War',
+                'robo-exhibition': 'Robo Exhibition'
+            };
+            const eventName = eventNames[formData.eventSelect] || formData.eventSelect;
 
             // 1. Upload payment screenshot to Appwrite Storage
             const file = await storage.createFile(
@@ -118,7 +125,7 @@ const Registration = () => {
             if (error?.response) {
                 console.error("Error Response Data:", error.response);
             }
-            alert("An error occurred during submission. Please try again or contact support.");
+            alert(`Error details: ${error.message || error}\nPlease check your network or try again.`);
         } finally {
             setIsLoading(false);
         }
