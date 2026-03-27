@@ -1,0 +1,216 @@
+.admin-shell {
+  min-height: 100vh;
+  padding: 110px 0 70px;
+}
+
+.admin-header,
+.admin-filters,
+.registration-card,
+.registrations-table-wrap {
+  background: rgba(12, 17, 23, 0.88);
+  border: 1px solid var(--bg-panel-border);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: clamp(1.1rem, 3.5vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.admin-subtitle,
+.admin-meta {
+  color: var(--text-muted);
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.admin-filters {
+  display: grid;
+  grid-template-columns: 1fr 240px auto;
+  gap: 0.8rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-block {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  background: rgba(0, 229, 255, 0.05);
+  padding: 0.7rem 0.8rem;
+}
+
+.filter-block input,
+.filter-block select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+
+.registrations-table-wrap {
+  overflow-x: auto;
+  margin-top: 0.9rem;
+}
+
+.registrations-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+}
+
+.registrations-table th,
+.registrations-table td {
+  text-align: left;
+  padding: 0.85rem;
+  border-bottom: 1px solid rgba(122, 131, 148, 0.2);
+  vertical-align: top;
+}
+
+.registrations-table th {
+  color: var(--neon-cyan);
+  font-family: var(--font-display);
+  letter-spacing: 1.4px;
+}
+
+.registrations-table td span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.proof-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.proof-thumb-btn {
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  background: rgba(0, 229, 255, 0.06);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.proof-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon-action {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.admin-state {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.admin-error {
+  color: var(--neon-magenta);
+}
+
+.registrations-mobile-grid {
+  display: none;
+}
+
+.registration-card {
+  margin-top: 0.9rem;
+  padding: 1rem;
+}
+
+.registration-card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.card-download {
+  width: 100%;
+}
+
+.proof-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 10, 0.8);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.proof-modal {
+  width: min(680px, 96vw);
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 229, 255, 0.32);
+  padding: 1rem;
+  position: relative;
+}
+
+.proof-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  background: transparent;
+  color: var(--text-main);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.proof-modal img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  margin: 0.7rem 0;
+}
+
+.proof-modal-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 980px) {
+  .admin-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .registrations-table-wrap {
+    display: none;
+  }
+
+  .registrations-mobile-grid {
+    display: block;
+  }
+
+  .admin-header {
+    flex-direction: column;
+  }
+}

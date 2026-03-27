@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { ArrowUpRight, ShieldCheck, Loader2 } from 'lucide-react';
 import './Registration.css';
 import { ID } from 'appwrite';
 import { storage, functions, APPWRITE_CONFIG, ExecutionMethod } from '../appwrite';
+import { useAuth } from '../hooks/useAuth';
 
 const Registration = () => {
+    const { user } = useAuth();
     const [formData, setFormData] = useState({
         fullName: '', email: '', mobile: '',
         college: '', department: '', year: '',
@@ -60,6 +62,7 @@ const Registration = () => {
         }
 
         setIsLoading(true);
+        let uploadedFile = null;
 
         try {
             // Safely get the event name without DOM manipulation
@@ -72,7 +75,7 @@ const Registration = () => {
             const eventName = eventNames[formData.eventSelect] || formData.eventSelect;
 
             // 1. Upload payment screenshot to Appwrite Storage
-            const file = await storage.createFile(
+            uploadedFile = await storage.createFile(
                 APPWRITE_CONFIG.bucketId,
                 ID.unique(),
                 proofData.paymentScreenshot
@@ -89,7 +92,9 @@ const Registration = () => {
                 usn: formData.usn,
                 eventSelect: formData.eventSelect,
                 transactionId: proofData.transactionId,
-                paymentScreenshotFileId: file.$id
+                paymentScreenshotFileId: uploadedFile.$id,
+                appwriteUserId: user?.$id || null,
+                appwriteUserEmail: user?.email || null
             };
 
             // 3. Execute the Cloud Function
@@ -117,6 +122,16 @@ const Registration = () => {
                 document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
             } else {
                 console.error("Backend Submission Error:", result.error || 'Unknown error', "Full Result:", result);
+                
+                // Rollback: Delete the uploaded file since DB entry failed
+                if (uploadedFile?.$id) {
+                    try {
+                        await storage.deleteFile(APPWRITE_CONFIG.bucketId, uploadedFile.$id);
+                    } catch (cleanupError) {
+                        console.error('Failed to cleanup orphaned file:', cleanupError);
+                    }
+                }
+                
                 alert(`Submission Failed: ${result.error || 'Unknown error'}`);
             }
 
@@ -125,6 +140,16 @@ const Registration = () => {
             if (error?.response) {
                 console.error("Error Response Data:", error.response);
             }
+            
+            // Rollback: Delete the uploaded file since the process threw an error
+            if (uploadedFile?.$id) {
+                try {
+                    await storage.deleteFile(APPWRITE_CONFIG.bucketId, uploadedFile.$id);
+                } catch (cleanupError) {
+                    console.error('Failed to cleanup orphaned file on error:', cleanupError);
+                }
+            }
+            
             alert(`Error details: ${error.message || error}\nPlease check your network or try again.`);
         } finally {
             setIsLoading(false);
@@ -136,18 +161,18 @@ const Registration = () => {
             <div className="container">
 
                 <div className="reg-hero">
-                    <motion.h2
+                    <Motion.h2
                         className="section-title"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
                         Registration
-                    </motion.h2>
+                    </Motion.h2>
                 </div>
 
                 <div className="reg-container">
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -243,7 +268,7 @@ const Registration = () => {
                                 </button>
                             </div>
                         </form>
-                    </motion.div>
+                    </Motion.div>
                 </div>
             </div>
         </section>

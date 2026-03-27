@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -19,11 +22,22 @@ const Navbar = () => {
         { name: 'Events', href: '#events' },
         { name: 'Personnel', href: '#coordinators' },
         { name: 'Register', href: '#registration' },
+        { name: 'Admin', href: '/admin/login' },
     ];
 
     const scrollToSection = (e, href) => {
         e.preventDefault();
         setIsOpen(false);
+        if (href.startsWith('/')) {
+            navigate(href);
+            return;
+        }
+
+        if (location.pathname !== '/') {
+            navigate('/');
+            return;
+        }
+
         const element = document.querySelector(href);
         if (element) {
             window.scrollTo({
@@ -46,7 +60,7 @@ const Navbar = () => {
                         <li key={link.name}>
                             <a
                                 href={link.href}
-                                className={`nav-link ${link.name === 'Register' ? 'nav-register-btn' : ''}`}
+                                className={`nav-link ${link.name === 'Register' || link.name === 'Admin' ? 'nav-register-btn' : ''}`}
                                 onClick={(e) => scrollToSection(e, link.href)}
                             >
                                 {link.name}

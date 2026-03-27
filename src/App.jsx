@@ -1,25 +1,31 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Events from './components/Events';
-import Coordinators from './components/Coordinators';
-import Registration from './components/Registration';
-import Footer from './components/Footer';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import './App.css';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
+import { AuthProvider } from './context/AuthContext';
+import AdminRegistrationsPage from './pages/AdminRegistrationsPage';
+import AuthPage from './pages/AuthPage';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
-    <div className="app-container">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Events />
-        <Coordinators />
-        <Registration />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/admin/login" element={<AuthPage />} />
+          <Route
+            path="/admin/registrations"
+            element={(
+              <ProtectedAdminRoute>
+                <AdminRegistrationsPage />
+              </ProtectedAdminRoute>
+            )}
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
