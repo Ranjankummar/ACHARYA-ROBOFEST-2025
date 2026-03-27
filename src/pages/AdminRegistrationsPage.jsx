@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Download, ExternalLink, Filter, LogOut, Search, X } from 'lucide-react';
+import { Download, ExternalLink, Filter, LogOut, Search, X, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Query } from 'appwrite';
-import { databases, APPWRITE_CONFIG, getProofPreviewUrl, getProofDownloadUrl } from '../appwrite';
+import { databases, storage, APPWRITE_CONFIG, getProofPreviewUrl, getProofDownloadUrl } from '../appwrite';
 import { useAuth } from '../hooks/useAuth';
 import './AdminRegistrationsPage.css';
 
@@ -48,6 +48,7 @@ const AdminRegistrationsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [eventFilter, setEventFilter] = useState('all');
   const [selectedProof, setSelectedProof] = useState(null);
+  const [processingId, setProcessingId] = useState(null);
 
   const fetchRegistrations = useCallback(async () => {
     setIsLoading(true);
@@ -78,6 +79,35 @@ const AdminRegistrationsPage = () => {
   useEffect(() => {
     fetchRegistrations();
   }, [fetchRegistrations]);
+
+  const handleDelete = async (registrationId, fileId) => {
+    if (!window.confirm('Are you sure you want to delete this registration? This will also delete the uploaded payment proof and cannot be undone.')) {
+      return;
+    }
+
+    setProcessingId(registrationId);
+    try {
+      await databases.deleteDocument(
+        APPWRITE_CONFIG.databaseId,
+        APPWRITE_CONFIG.registrationsCollectionId,
+        registrationId
+      );
+
+      if (fileId) {
+        try {
+          await storage.deleteFile(APPWRITE_CONFIG.bucketId, fileId);
+        } catch (e) {
+          console.error("Failed to delete proof file from storage:", e);
+        }
+      }
+
+      setAllRegistrations((prev) => prev.filter((r) => r.$id !== registrationId));
+    } catch (err) {
+      alert(err.message || 'Failed to delete registration. Please try again.');
+    } finally {
+      setProcessingId(null);
+    }
+  };
 
   const filteredRegistrations = useMemo(() => {
     return allRegistrations
@@ -180,6 +210,7 @@ const AdminRegistrationsPage = () => {
                     <th>Transaction</th>
                     <th>Submitted</th>
                     <th>Proof</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -236,6 +267,18 @@ const AdminRegistrationsPage = () => {
                               </a>
                             )}
                           </div>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            className="premium-btn"
+                            style={{ padding: '8px', background: 'var(--danger, transparent)', border: '1px solid var(--danger, red)', color: 'var(--danger, red)' }}
+                            onClick={() => handleDelete(item.$id, fileId)}
+                            disabled={processingId === item.$id}
+                            title="Delete Entry"
+                          >
+                            <Trash2 size={16} />
+                          </button>
                         </td>
                       </tr>
                     );
@@ -296,6 +339,16 @@ const AdminRegistrationsPage = () => {
                         </a>
                       )}
                     </div>
+                    
+                    <button
+                      type="button"
+                      className="premium-btn premium-btn-outline card-download"
+                      style={{ marginTop: '0.8rem', borderColor: 'var(--danger, red)', color: 'var(--danger, red)' }}
+                      onClick={() => handleDelete(item.$id, fileId)}
+                      disabled={processingId === item.$id}
+                    >
+                      <Trash2 size={14} /> {processingId === item.$id ? 'Deleting...' : 'Delete Entry'}
+                    </button>
                   </article>
                 );
               })}
