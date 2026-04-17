@@ -187,7 +187,7 @@ const eventDetails = {
         content: (
             <>
                 <h4 className="modal-h4">Robot Requirements</h4>
-                <p className="modal-p"><strong>Weight & Dimensions:</strong> Maximum weight is 5.0 kg (includes battery, excludes transmitter) with a strict 50-gram tolerance.<br/>
+                <p className="modal-p"><strong>Weight & Dimensions:</strong> Maximum weight is 5-10 kg (includes battery, excludes transmitter) with a strict 50-gram tolerance.<br/>
                 <strong>Size Limits:</strong> The robot must fit inside a 400mm × 400mm × 300mm starting box.<br/>
                 <strong>Extensions:</strong> Mechanical extensions are only allowed after the match begins.</p>
 
